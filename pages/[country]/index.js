@@ -1,8 +1,6 @@
-// API:
-//http://api.tvmaze.com/schedule?country=US&date=2014-12-01
-
-// Imports
+// Imports:
 import axios from 'axios';
+import Thumbnail from '../../components/Thumbnail';
 
 // :::::Main:::::
 const CountryHome = ({ shows }) => {
@@ -10,7 +8,12 @@ const CountryHome = ({ shows }) => {
   const renderShows = () => {
     return shows.map((showItem, index) => {
       const { show } = showItem;
-      return <li key={index}>{show.name}</li>;
+
+      return (
+        <li key={index}>
+          <Thumbnail caption={show.name} imageUrl={show.image}></Thumbnail>
+        </li>
+      );
     });
   };
 
@@ -30,3 +33,6 @@ CountryHome.getInitialProps = async (context) => {
 };
 
 export default CountryHome;
+
+// API:
+//http://api.tvmaze.com/schedule?country=US&date=2014-12-01
