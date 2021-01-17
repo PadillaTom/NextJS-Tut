@@ -1,5 +1,6 @@
 // Imports:
 import axios from 'axios';
+// import ThumbnailSASS from '../../components/ThumbnailSASS/index';
 import Thumbnail from '../../components/Thumbnail';
 
 // :::::Main:::::
@@ -11,7 +12,10 @@ const CountryHome = ({ shows }) => {
 
       return (
         <li key={index}>
-          <Thumbnail caption={show.name} imageUrl={show.image}></Thumbnail>
+          <Thumbnail
+            caption={show.name}
+            imageUrl={(show.image && show.image.medium) || undefined}
+          ></Thumbnail>
         </li>
       );
     });
