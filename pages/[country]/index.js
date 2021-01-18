@@ -1,10 +1,12 @@
-// Imports:
+// Imports --->
 import axios from 'axios';
-// import ThumbnailSASS from '../../components/ThumbnailSASS/index';
+// Components --->
 import Thumbnail from '../../components/Thumbnail';
+// CSS --->
+import styles from './styles';
 
 // :::::Main:::::
-const CountryHome = ({ shows }) => {
+const CountryHome = ({ shows, country }) => {
   // Function to RenderShows:
   const renderShows = () => {
     return shows.map((showItem, index) => {
@@ -15,13 +17,20 @@ const CountryHome = ({ shows }) => {
           <Thumbnail
             caption={show.name}
             imageUrl={(show.image && show.image.medium) || undefined}
+            href='/[country]/[showId]'
+            as={`/${country}/${show.id}`}
           ></Thumbnail>
         </li>
       );
     });
   };
 
-  return <ul className='tvshows'>{renderShows()}</ul>;
+  return (
+    <ul className='tvshows-grid'>
+      {renderShows()}
+      <style jsx>{styles}</style>
+    </ul>
+  );
 };
 
 // ::::::::::::SSR::::::::::::::
@@ -33,6 +42,7 @@ CountryHome.getInitialProps = async (context) => {
   );
   return {
     shows: response.data,
+    country,
   };
 };
 
