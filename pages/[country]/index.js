@@ -1,9 +1,8 @@
 // Imports --->
 import axios from 'axios';
 // Components --->
+import styles from '../../styles/PagesStyles';
 import Thumbnail from '../../components/Thumbnail';
-// CSS --->
-import styles from './styles';
 
 // :::::Main:::::
 const CountryHome = ({ shows, country }) => {

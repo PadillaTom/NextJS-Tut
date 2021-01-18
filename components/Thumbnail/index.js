@@ -1,5 +1,5 @@
 // Importing EXTERNAL JSX CSS:
-import ThumbnailStyles from '../Thumbnail/styles';
+// import styles from '../../styles/ThumbnailStyles';
 import Link from 'next/link';
 
 const Thumbnail = ({
@@ -7,6 +7,7 @@ const Thumbnail = ({
   imageUrl = 'https://i2.wp.com/www.spainonafork.com/wp-content/uploads/2019/04/popcornHOR-11.png?fit=750%2C750&ssl=1',
   href = '',
   as = '',
+  small = false,
 }) => {
   //   ::::: MAIN ::::::
   return (
@@ -18,7 +19,19 @@ const Thumbnail = ({
         </a>
       </Link>
       {/* Styles */}
-      <style jsx>{ThumbnailStyles}</style>
+      <style jsx>
+        {`
+          .thumb__image {
+            width: ${small ? '100px' : '100%'};
+            height: ${small && '10rem'};
+            object-fit: cover;
+          }
+          .thumb__caption {
+            text-align: center;
+            margin-top: 0.7rem;
+          }
+        `}
+      </style>
     </div>
   );
 };

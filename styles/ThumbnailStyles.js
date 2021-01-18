@@ -2,7 +2,7 @@ import css from 'styled-jsx/css';
 
 const ThumbnailStyles = css`
   .thumb__image {
-    width: 100%;
+    width: '100%';
     object-fit: cover;
   }
   .thumb__caption {
