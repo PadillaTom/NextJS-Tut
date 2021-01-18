@@ -6,6 +6,12 @@ const TvShows = css`
     grid-template-columns: 1fr 1fr;
     gap: 0.7rem;
   }
+  .show-details {
+  }
+  .show-details__poster {
+    height: 200px;
+    object-fit: cover;
+  }
 `;
 
 export default TvShows;

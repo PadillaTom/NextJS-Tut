@@ -34,15 +34,17 @@ const CountryHome = ({ shows, country }) => {
 };
 
 // ::::::::::::SSR::::::::::::::
-CountryHome.getInitialProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const country = context.query.country || 'us';
 
   const response = await axios.get(
     `http://api.tvmaze.com/schedule?country=${country}&date=2014-12-01`
   );
   return {
-    shows: response.data,
-    country,
+    props: {
+      shows: response.data,
+      country,
+    },
   };
 };
 
